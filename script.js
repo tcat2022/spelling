@@ -1,10 +1,14 @@
 let speak = document.getElementById('speak')
 let check = document.getElementById('check')
 let textField = document.getElementById('text-field')
+
 //fixing ai voice bug
 window.onload = function() {
-    Random()
+    let utterance = new SpeechSynthesisUtterance('');
+    window.speechSynthesis.speak(utterance);
         } 
+
+ //repeats the random word from database
     function Random() {
         let word = wordList[Math.floor(Math.random()*wordList.length)];
         let voices = window.speechSynthesis.getVoices();
@@ -17,10 +21,11 @@ window.onload = function() {
          window.speechSynthesis.speak(utterance);
          console.log(voices)
     }
-  //repeats the random word from database
+
 speak.addEventListener('click', () => {
     Random()
 })
+
 check.addEventListener('click', () => {
 textField.value = '';
 Random()
