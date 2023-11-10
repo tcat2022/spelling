@@ -1,3 +1,10 @@
 #text-field{
     text-transform: lowercase;
 }
+
+#missed{
+    width: 50%;
+    height: 200px;
+    border: 2px solid;
+    overflow-y: scroll;
+}

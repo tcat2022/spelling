@@ -1,4 +1,5 @@
 let speak = document.getElementById('speak');
+let missed = document.getElementById('missed');
 let check = document.getElementById('check');
 let textField = document.getElementById('text-field');
 let number = 0;
@@ -7,7 +8,7 @@ let score = 0
 let scoreField  = document.getElementById('score').innerText = score;
 
 //fixing ai voice bug
-
+/*
 window.onload = function() {
     let word = wordList[Math.floor(Math.random()*wordList.length)];
     let voices = window.speechSynthesis.getVoices();
@@ -21,7 +22,7 @@ window.onload = function() {
      utterance.rate = .9;
      window.speechSynthesis.speak(utterance);
         } 
-
+*/
 setInterval(function() {
     let value = textField.value
     let a = localStorage.getItem('word' + number);
@@ -49,6 +50,9 @@ setInterval(function() {
    console.log(voices)
     if(counter != true){
         score += 1
+        var p = document.createElement('p');
+        p.textContent = number + '. ' + a;
+        missed.appendChild(p);
     }
     scoreField  = document.getElementById('score').innerText ='missed ' + score + ' out of ' + number;
     console.log(score)
