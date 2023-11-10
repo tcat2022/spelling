@@ -7,6 +7,7 @@ let score = 0
 let scoreField  = document.getElementById('score').innerText = score;
 
 //fixing ai voice bug
+
 window.onload = function() {
     let word = wordList[Math.floor(Math.random()*wordList.length)];
     let voices = window.speechSynthesis.getVoices();
@@ -21,6 +22,15 @@ window.onload = function() {
      window.speechSynthesis.speak(utterance);
         } 
 
+setInterval(function() {
+    let value = textField.value
+    let a = localStorage.getItem('word' + number);
+    if(value === a){
+        counter = true;
+         }else{
+            counter = false
+         }
+},1)
 
  //says a random word the from database
     check.addEventListener('click', () => {
@@ -36,15 +46,7 @@ window.onload = function() {
      utterance.voice = desiredVoice;
      utterance.rate = .9;
      window.speechSynthesis.speak(utterance);
-     let value;
-     setInterval(function() {
-        value = textField.value
-        if(value === a){
-            counter = true;
-             }else{
-                counter = false
-             }
-    },1)   
+   
     if(counter != true){
         score += 1
     }
