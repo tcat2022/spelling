@@ -8,44 +8,13 @@ let scoreField  = document.getElementById('score').innerText = score;
 
 //fixing ai voice bug
 window.onload = function() {
-    number++
-    let word = wordList[Math.floor(Math.random()*wordList.length)];
 
-    let voices = window.speechSynthesis.getVoices();
-    localStorage.setItem('word' + number, word);
-    let a = localStorage.getItem('word' + number);
-    let utterance = new SpeechSynthesisUtterance(a);
-    let desiredVoice = voices.find(function (voice) {
-       return voice.name === "Google UK English Male";
-     });
-     utterance.voice = desiredVoice;
-     utterance.rate = .9;
-     window.speechSynthesis.speak(utterance);
-     let value;
-     setInterval(function() {
-        value = textField.value
-        if(value === a){
-            counter = true;
-             }else{
-                counter = false
-             }
-             scoreField  = document.getElementById('score').innerText = score;
-    },1)   
-    if(counter == true){
-        score++
-    }
-    
-     textField.value = '';
         } 
-
-
-
 
  //says a random word the from database
     check.addEventListener('click', () => {
     number++
     let word = wordList[Math.floor(Math.random()*wordList.length)];
-
     let voices = window.speechSynthesis.getVoices();
     localStorage.setItem('word' + number, word);
     let a = localStorage.getItem('word' + number);
@@ -64,16 +33,13 @@ window.onload = function() {
              }else{
                 counter = false
              }
-             scoreField  = document.getElementById('score').innerText = score;
     },1)   
     if(counter == true){
         score++
     }
-    
+    scoreField  = document.getElementById('score').innerText = score;
      textField.value = '';
 })
-
-
 
 //repeats the random word from database
 speak.addEventListener('click', () => {
@@ -85,7 +51,5 @@ speak.addEventListener('click', () => {
      });
      utterance.voice = desiredVoice;
      utterance.rate = .9;
-    window.speechSynthesis.speak(utterance);
-
-   
+    window.speechSynthesis.speak(utterance);  
 })
