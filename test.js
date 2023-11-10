@@ -1,0 +1,1 @@
+let wordList = ['bat','cat','dog','rat'];
