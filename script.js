@@ -15,7 +15,7 @@ window.onload = function() {
     let a = localStorage.getItem('word' + number);
     let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
-       return voice.name === "Google UK English Male";
+       return voice.name === "Google US English";
      });
      utterance.voice = desiredVoice;
      utterance.rate = .9;
@@ -41,12 +41,12 @@ setInterval(function() {
     let a = localStorage.getItem('word' + number);
     let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
-       return voice.name === "Google UK English Male";
+       return voice.name === "Google US English";
      });
      utterance.voice = desiredVoice;
      utterance.rate = .9;
      window.speechSynthesis.speak(utterance);
-   
+   console.log(voices)
     if(counter != true){
         score += 1
     }
@@ -61,7 +61,7 @@ speak.addEventListener('click', () => {
     let voices = window.speechSynthesis.getVoices();
     let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
-       return voice.name === "Google UK English Male";
+       return voice.name === "Google US English";
      });
      utterance.voice = desiredVoice;
      utterance.rate = .9;
