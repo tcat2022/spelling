@@ -2,7 +2,7 @@ let speak = document.getElementById('speak');
 let missed = document.getElementById('missed');
 let check = document.getElementById('check');
 let textField = document.getElementById('text-field');
-let number = 0;
+let number = 1;
 let counter = true;
 let score = 0
 let scoreField  = document.getElementById('score').innerText = score;
@@ -50,9 +50,9 @@ setInterval(function() {
    console.log(voices)
     if(counter != true){
         score += 1
-        var p = document.createElement('p');
-        p.textContent = number + '. ' + a;
-        missed.appendChild(p);
+      var p = document.createElement('p');
+      p.textContent = number - 1 + '. ' + localStorage.getItem('word' + `${number - 1}`);
+      missed.appendChild(p);
     }
     scoreField  = document.getElementById('score').innerText ='missed ' + score + ' out of ' + number;
     console.log(score)
