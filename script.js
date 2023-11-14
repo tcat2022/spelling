@@ -5,11 +5,8 @@ let textField = document.getElementById('text-field');
 let number = 1;
 let counter = true;
 let score = 0
-let scoreField  = document.getElementById('score').innerText = score;
+let scoreField  = document.getElementById('score')
 let dot = '. '
-
-
-//fixing ai voice bug
 
 window.onload = function() {
     let word = wordList[Math.floor(Math.random()*wordList.length)];
@@ -35,7 +32,6 @@ setInterval(function() {
          }
 },1)
 
- //says a random word the from database
     check.addEventListener('click', () => {
     number++
     let word = wordList[Math.floor(Math.random()*wordList.length)];

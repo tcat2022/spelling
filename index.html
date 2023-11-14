@@ -7,14 +7,16 @@
     <title>Smart Spelling</title>
 </head>
 <body>
-    <h1>Random Spelling Words</h1>
-    <button id="speak">Say Word</button>
+<div id="contain">
+    <h1 id="title">Random Spelling Words</h1>
     <div id="container">
-    <input type="text" id="text-field">
-    <button id="check">Check</button>
+        <button id="speak">Say Word</button>
+        <input type="text" id="text-field">
+        <button id="check">Check</button>
+    <h2 id="score">missed 0 out of 0</h2>
 </div>
-<h2 id="score"></h2>
-<div id="missed"></div>
+    <div id="missed"></div>
+</div>
 <script src="words.js"></script>
 <script src="script.js"></script>
 </body>

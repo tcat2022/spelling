@@ -1,3 +1,16 @@
+#contain{
+    position: relative;
+    left: 20%;
+    width: 60%;
+    height:500px;
+display: flex;
+
+justify-content: center;
+align-items: center;
+gap: 10px;
+border: 2px solid lightblue;
+}
+
 #text-field{
     text-transform: lowercase;
 }
@@ -16,3 +29,37 @@
 .correct{
 color: green;
 }
+
+#speak{
+width: fit-content;
+}
+
+#container{
+
+}
+
+#check{
+
+}
+
+#score{
+
+}
+
+#missed{
+} 
+
+#missed::-webkit-scrollbar {
+    width: 15px;
+  }
+   
+  /* Handle */
+  #missed::-webkit-scrollbar-thumb {
+    background-color: rgb(245, 223, 186);
+    box-shadow: inset 0 0 8px orange; 
+  }
+
+  #title{
+    position: absolute;
+    top: 0;
+  }
