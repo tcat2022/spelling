@@ -8,3 +8,11 @@
     border: 2px solid;
     overflow-y: scroll;
 }
+
+.wrong{
+    color: red;
+}
+
+.correct{
+color: green;
+}

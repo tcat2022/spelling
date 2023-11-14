@@ -6,6 +6,8 @@ let number = 1;
 let counter = true;
 let score = 0
 let scoreField  = document.getElementById('score').innerText = score;
+let dot = '. '
+
 
 //fixing ai voice bug
 
@@ -51,10 +53,16 @@ setInterval(function() {
     if(counter != true){
         score += 1
       var p = document.createElement('p');
-      p.textContent = number - 1 + '. ' + localStorage.getItem('word' + `${number - 1}`);
+      p.textContent = number - 1 + dot + localStorage.getItem('word' + `${number - 1}`);
       missed.appendChild(p);
+      p.classList.add('wrong')
+    }else {
+      var p1 = document.createElement('p');
+      p1.textContent = number - 1 + dot + localStorage.getItem('word' + `${number - 1}`);
+      missed.appendChild(p1);
+      p1.classList.add('correct')
     }
-    scoreField  = document.getElementById('score').innerText ='missed ' + score + ' out of ' + number;
+    scoreField  = document.getElementById('score').innerText ='missed ' + score + ' out of ' + `${number - 1}`;
     console.log(score)
      textField.value = '';
 })
