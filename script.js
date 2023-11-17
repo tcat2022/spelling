@@ -47,17 +47,19 @@ setInterval(function() {
    console.log(voices)
     if(counter != true){
         score += 1
-      var p = document.createElement('li');
-      p.textContent =  localStorage.getItem('word' + `${number - 1}`);
+      var p = document.createElement('p');
+      p.textContent = number - 1 + '. ' + localStorage.getItem('word' + `${number - 1}`);
       missed.appendChild(p);
       p.classList.add('wrong')
+      p.scrollIntoView();
     }else {
-      var p1 = document.createElement('li');
-      p1.textContent = localStorage.getItem('word' + `${number - 1}`);
+      var p1 = document.createElement('p');
+      p1.textContent = number - 1 + '. ' +  localStorage.getItem('word' + `${number - 1}`);
       missed.appendChild(p1);
       p1.classList.add('correct')
+      p1.scrollIntoView();
     }
-    scoreField  = document.getElementById('score').innerText ='missed ' + score + ' out of ' + `${number - 1}`;
+    scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1}`;
     console.log(score)
      textField.value = '';
 })

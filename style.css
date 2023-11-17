@@ -5,8 +5,8 @@
 }
 
 body{
-  background: rgb(209, 251, 255);
-  color: white;
+  background:#4299A8;
+  color:#fcf3e3;
 }
 
 #contain{
@@ -18,30 +18,30 @@ transform: translate(0,-50%);
   display: flex;
   justify-content: center;
 align-items: center;
-gap: 50px;
-
-}
-
-.outline{
-  -webkit-text-stroke: .5px #000; 
 }
 
 .buttons{
   background: white;
   border: none;
   padding: 5px;
-  box-shadow: rgba(0, 0, 0, 0.300) 1.5px 1.5px 2.6px;
+  box-shadow: #0E6393 2px 2px 5px;
   border-radius: 3px;
+  color: #fcf3e3;
+  background-color: #214a52;
+}
+#speak{
+width: 40%;
+font-size: 25px;
 }
 
 .animation{
-  animation: clicked .3s;
+  animation: clicked .2s;
 }
 
 @keyframes clicked {
   to{
-  transform:translate(-48.5%) ;
-  box-shadow: rgba(0, 0, 0, 0.500) 2.5px 2.5px 5px;
+  transform:translateY(2%) translateX(2%);
+  box-shadow: #0E6393 4.5px 4.5px 8px;
   }
 }
 
@@ -55,39 +55,31 @@ gap: 50px;
   width:100%;
   height: 25px;
     text-transform: lowercase;
-    outline-color:rgb(209, 251, 255) ;
+    outline-color:#0E6393 ;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.200) 3px 3px 5px;
+    box-shadow: #0E6393 3px 3px 7px;
     padding: 15px;
+    background-color: #fcf3e3;
 }
 
 .wrong{
-    color: red;
-    list-style-type:decimal-leading-zero;
+    color:#9B3233;
     font-size: 25px;
 }
 
 
 .correct{
-color: green;
-list-style-type:decimal-leading-zero;
+color:#327308;
 font-size: 25px;
 }
 
-#speak{
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  top: 22%;
-width: 40%;
-font-size: 25px;
-}
 #check{
   width: 60px;
   height: 25px;
 position: absolute;
 right: 0;
-background: rgb(209, 251, 255) ;
+background:#214a52;
+color: #fcf3e3;
 border: none;
 font-size: 17px;
 top: 50%;
@@ -120,22 +112,28 @@ font-size: 35px;
 }
 
 #missed{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
  display: flex;
  justify-content: center;
  text-align: center;
-  width: 100%;
+  width: 75%;
   height:100%;
   border: 2px solid;
   overflow-y: scroll;
-  background: white;
+  background:#fcf3e3;
+  border: none;
   border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.200) 3px 3px 5px;
+  box-shadow: #0E6393 3px 3px 8px;
 }
 
 #li-container{
+  position: absolute;
+  left: 5%;
   text-align: left;
-  width:5%;
 margin-top: 10px;
+
 }
 
 #missed::-webkit-scrollbar {
@@ -144,7 +142,7 @@ margin-top: 10px;
    
   /* Handle */
   #missed::-webkit-scrollbar-thumb {
-    background-color: rgb(186, 241, 245);
+    background-color:#0E6393;
     box-shadow: inset 0 0 8px lightblue; 
   }
 
