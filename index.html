@@ -8,14 +8,20 @@
 </head>
 <body>
 <div id="contain">
-    <h1 id="title">Random Spelling Words</h1>
+    <h1 id="title" class="outline">Random Spelling Words</h1>
     <div id="container">
-        <button id="speak">Say Word</button>
-        <input type="text" id="text-field">
-        <button id="check">Check</button>
-    <h2 id="score">missed 0 out of 0</h2>
-</div>
-    <div id="missed"></div>
+        <button id="speak" class="buttons">Say Word</button>
+           <div id="text-container">
+                <input type="text" id="text-field" spellcheck="false">
+                <button id="check">Check</button>
+           </div>
+        </div>
+    <div id="container2">
+    <h2 id="score" class="outline">missed 0 out of 0</h2>
+        <div id="missed">
+            <ul id="li-container"></ul>
+        </div>
+    </div>
 </div>
 <script src="words.js"></script>
 <script src="script.js"></script>

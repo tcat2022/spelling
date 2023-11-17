@@ -1,12 +1,11 @@
 let speak = document.getElementById('speak');
-let missed = document.getElementById('missed');
+let missed = document.getElementById('li-container');
 let check = document.getElementById('check');
 let textField = document.getElementById('text-field');
 let number = 1;
 let counter = true;
 let score = 0
 let scoreField  = document.getElementById('score')
-let dot = '. '
 
 window.onload = function() {
     let word = wordList[Math.floor(Math.random()*wordList.length)];
@@ -48,13 +47,13 @@ setInterval(function() {
    console.log(voices)
     if(counter != true){
         score += 1
-      var p = document.createElement('p');
-      p.textContent = number - 1 + dot + localStorage.getItem('word' + `${number - 1}`);
+      var p = document.createElement('li');
+      p.textContent =  localStorage.getItem('word' + `${number - 1}`);
       missed.appendChild(p);
       p.classList.add('wrong')
     }else {
-      var p1 = document.createElement('p');
-      p1.textContent = number - 1 + dot + localStorage.getItem('word' + `${number - 1}`);
+      var p1 = document.createElement('li');
+      p1.textContent = localStorage.getItem('word' + `${number - 1}`);
       missed.appendChild(p1);
       p1.classList.add('correct')
     }
@@ -65,6 +64,8 @@ setInterval(function() {
 
 //repeats the random word from database
 speak.addEventListener('click', () => {
+  speak.classList.add('animation');
+  setTimeout(function() {speak.classList.remove('animation')},100);
     let a = localStorage.getItem('word' + number);
     let voices = window.speechSynthesis.getVoices();
     let utterance = new SpeechSynthesisUtterance(a);
