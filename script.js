@@ -1,4 +1,5 @@
 let speak = document.getElementById('speak');
+let right = document.getElementById('right');
 let missed = document.getElementById('li-container');
 let check = document.getElementById('check');
 let textField = document.getElementById('text-field');
@@ -6,6 +7,7 @@ let number = 1;
 let counter = true;
 let score = 0
 let scoreField  = document.getElementById('score')
+let completed = 0
 
 window.onload = function() {
     let word = wordList[Math.floor(Math.random()*wordList.length)];
@@ -31,9 +33,20 @@ setInterval(function() {
          }
 },1)
 
+textField.addEventListener('keypress', (event) => {
+  if (event.keyCode === 49) {
+    event.preventDefault();
+  }
+});
+
     check.addEventListener('click', () => {
     number++
+    completed++
     let word = wordList[Math.floor(Math.random()*wordList.length)];
+    let numberToExclude = localStorage.getItem('word' + `${number - 1}`);
+    if(localStorage.getItem('word' + `${number - 1}`) == word){
+      word = wordList.filter(number => number !== numberToExclude)[Math.floor(Math.random() * wordList.length)];
+    }
     let voices = window.speechSynthesis.getVoices();
     localStorage.setItem('word' + number, word);
     let a = localStorage.getItem('word' + number);
@@ -59,15 +72,21 @@ setInterval(function() {
       p1.classList.add('correct')
       p1.scrollIntoView();
     }
-    scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1}`;
-    console.log(score)
-     textField.value = '';
+    let percentage = Math.floor(score/completed*100)
+    right.innerText = `${100 - percentage}` + '%' + ' Right'
+    scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1} `;
+     textField.value = '';    
 })
 
 textField.addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
   number++
+  completed++
   let word = wordList[Math.floor(Math.random()*wordList.length)];
+  let numberToExclude = localStorage.getItem('word' + `${number - 1}`);
+  if(localStorage.getItem('word' + `${number - 1}`) == word){
+    word = wordList.filter(number => number !== numberToExclude)[Math.floor(Math.random() * wordList.length)];
+  }
   let voices = window.speechSynthesis.getVoices();
   localStorage.setItem('word' + number, word);
   let a = localStorage.getItem('word' + number);
@@ -93,9 +112,10 @@ textField.addEventListener('keypress', (event) => {
     p1.classList.add('correct')
     p1.scrollIntoView();
   }
-  scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1}`;
-  console.log(score)
-   textField.value = '';
+  let percentage = Math.floor(score/completed*100)
+  right.innerText = `${100 - percentage}` + '%' + ' Right'
+  scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1} `;
+textField.value = '';
 }
 })
 

@@ -47,5 +47,3 @@ const wordList = [
     "unctuous", "vacillate", "vehement", "verbose", "vestige", "vilify", "vitriolic", "vivacious", "volatile", "wary", "wistful",
     "wry", "zealous", "zenith", "zephyr", "quotidian", "raucous", "redolent"
   ]
-  
-      
