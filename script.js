@@ -14,6 +14,8 @@ window.onload = function() {
     let voices = window.speechSynthesis.getVoices();
     localStorage.setItem('word' + number, word);
     let a = localStorage.getItem('word' + number);
+    let index = wordList.indexOf(word);
+    wordList.splice(index,1);
     let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
        return voice.name === "Google US English";
@@ -43,21 +45,20 @@ textField.addEventListener('keypress', (event) => {
     number++
     completed++
     let word = wordList[Math.floor(Math.random()*wordList.length)];
-    let numberToExclude = localStorage.getItem('word' + `${number - 1}`);
-    if(localStorage.getItem('word' + `${number - 1}`) == word){
-      word = wordList.filter(number => number !== numberToExclude)[Math.floor(Math.random() * wordList.length)];
-    }
     let voices = window.speechSynthesis.getVoices();
     localStorage.setItem('word' + number, word);
     let a = localStorage.getItem('word' + number);
-    let utterance = new SpeechSynthesisUtterance(a);
+    let index = wordList.indexOf(word);
+    wordList.splice(index,1);
+    console.log(index)
+   let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
        return voice.name === "Google US English";
      });
      utterance.voice = desiredVoice;
      utterance.rate = .9;
      window.speechSynthesis.speak(utterance);
-   console.log(voices)
+
     if(counter != true){
         score += 1
       var p = document.createElement('p');
@@ -83,13 +84,11 @@ textField.addEventListener('keypress', (event) => {
   number++
   completed++
   let word = wordList[Math.floor(Math.random()*wordList.length)];
-  let numberToExclude = localStorage.getItem('word' + `${number - 1}`);
-  if(localStorage.getItem('word' + `${number - 1}`) == word){
-    word = wordList.filter(number => number !== numberToExclude)[Math.floor(Math.random() * wordList.length)];
-  }
   let voices = window.speechSynthesis.getVoices();
   localStorage.setItem('word' + number, word);
   let a = localStorage.getItem('word' + number);
+  let index = wordList.indexOf(word);
+  wordList.splice(index,1);
   let utterance = new SpeechSynthesisUtterance(a);
   let desiredVoice = voices.find(function (voice) {
      return voice.name === "Google US English";
@@ -97,7 +96,6 @@ textField.addEventListener('keypress', (event) => {
    utterance.voice = desiredVoice;
    utterance.rate = .9;
    window.speechSynthesis.speak(utterance);
- console.log(voices)
   if(counter != true){
       score += 1
     var p = document.createElement('p');
