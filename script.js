@@ -15,7 +15,7 @@ window.onload = function() {
     localStorage.setItem('word' + number, word);
     let a = localStorage.getItem('word' + number);
     let index = wordList.indexOf(word);
-    wordList.splice(index,1);
+    wordlist.splice(index,1);
     let utterance = new SpeechSynthesisUtterance(a);
     let desiredVoice = voices.find(function (voice) {
        return voice.name === "Google US English";
@@ -40,6 +40,10 @@ textField.addEventListener('keypress', (event) => {
     event.preventDefault();
   }
 });
+
+document.body.addEventListener('click', function(){
+  textField.focus();
+})
 
     check.addEventListener('click', () => {
     number++

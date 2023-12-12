@@ -5,7 +5,7 @@ const wordList = [
     "anticipate", "apprehensive", "argumentative", "ascendancy", "assessment", "assimilate", "astounding", "atrocious", "authentic",
     "authority", "avidity", "banish", "beneficial", "biodegradable", "blatant", "bolster", "brevity", "calculate", "camouflage",
     "capitulate", "captivate", "category", "cautious", "celebrate", "censure", "challenge", "changeable", "charismatic", "chastise",
-    "chronic", "cliché", "coalesce", "collaborate", "commemorate", "communication", "comparable", "compassion", "compensate", "competence",
+    "chronic", "cliche", "coalesce", "collaborate", "commemorate", "communication", "comparable", "compassion", "compensate", "competence",
     "comprehend", "concede", "conceivable", "conclusive", "concur", "condemn", "condescend", "conducive", "confrontation", "congenial",
     "consequence", "consistent", "conspicuous", "contemplate", "contradict", "controversial", "convergence", "correspond", "corroborate",
     "credible", "culminate", "cumbersome", "debase", "deceive", "decipher", "decompose", "decorum", "deferential", "deficient", "delectable",
