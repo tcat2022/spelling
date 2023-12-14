@@ -48,17 +48,9 @@ font-size: 25px;
   position: absolute;
   right: 8%;
   font-size: 35px;
-  word-spacing: 5px;
-}
+  border-bottom: 2px dotted #214a52;
+  padding-bottom: 2px;
 
-#right::after{
-    content : "";
-    position : absolute;
-    width : 100%;
-    height : 2px;
-    background-color:#214a52;
-    bottom: -2.5%;
-    left: 0;
 }
 
 .animation{
@@ -90,7 +82,7 @@ font-size: 25px;
 }
 
 .wrong{
-    color:#9B3233;
+    color:#ad080b;
     font-size: 25px;
 }
 
