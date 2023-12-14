@@ -66,16 +66,31 @@ document.body.addEventListener('click', function(){
     if(counter != true){
         score += 1
       var p = document.createElement('p');
-      p.textContent = number - 1 + '. ' + localStorage.getItem('word' + `${number - 1}`) + ' ' + textField.value; 
-      missed.appendChild(p);
-      p.classList.add('wrong')
-      p.scrollIntoView();
-    }else {
       var p1 = document.createElement('p');
-      p1.textContent = number - 1 + '. ' +  localStorage.getItem('word' + `${number - 1}`);
-      missed.appendChild(p1);
-      p1.classList.add('correct')
-      p1.scrollIntoView();
+      var p2 = document.createElement('p');
+      p.textContent = number - 1 + '. ';
+      p2.textContent =localStorage.getItem('word' + `${number - 1}`);
+      p1.textContent = textField.value
+      p1.classList.add('wrong')
+      p.classList.add('black')
+      p2.classList.add('correct')
+      let div = document.createElement('div');
+      div.classList.add('div')
+      div.append(p,p1,p2)
+      missed.append(div);
+      p2.scrollIntoView(); 
+    }else {
+      var correct = document.createElement('p');
+      var number1 = document.createElement('p');
+      correct.textContent =localStorage.getItem('word' + `${number - 1}`);
+      number1.textContent = number - 1 + '. ';
+      let div = document.createElement('div');
+      div.classList.add('div')
+      div.append(number1,correct)
+      missed.append(div);
+      number1.classList.add('black')
+      correct.classList.add('correct')
+      correct.scrollIntoView();
     }
     let percentage = Math.floor(score/completed*100)
     right.innerText = `${100 - percentage}` + '%' + ' Right'
