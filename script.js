@@ -46,61 +46,63 @@ document.body.addEventListener('click', function(){
 })
 
     check.addEventListener('click', () => {
-    number++
-    completed++
-    let word = wordList[Math.floor(Math.random()*wordList.length)];
-    let voices = window.speechSynthesis.getVoices();
-    localStorage.setItem('word' + number, word);
-    let a = localStorage.getItem('word' + number);
-    let index = wordList.indexOf(word);
-    wordList.splice(index,1);
-    console.log(index)
-   let utterance = new SpeechSynthesisUtterance(a);
-    let desiredVoice = voices.find(function (voice) {
-       return voice.name === "Google US English";
-     });
-     utterance.voice = desiredVoice;
-     utterance.rate = .9;
-     window.speechSynthesis.speak(utterance);
-
-    if(counter != true){
-        score += 1
-      var p = document.createElement('p');
-      var p1 = document.createElement('p');
-      var p2 = document.createElement('p');
-      p.textContent = number - 1 + '. ';
-      p2.textContent =localStorage.getItem('word' + `${number - 1}`);
-      p1.textContent = textField.value
-      p1.classList.add('wrong')
-      p.classList.add('black')
-      p2.classList.add('correct')
-      let div = document.createElement('div');
-      div.classList.add('div')
-      div.append(p,p1,p2)
-      missed.append(div);
-      p2.scrollIntoView(); 
-    }else {
-      var correct = document.createElement('p');
-      var number1 = document.createElement('p');
-      correct.textContent =localStorage.getItem('word' + `${number - 1}`);
-      number1.textContent = number - 1 + '. ';
-      let div = document.createElement('div');
-      div.classList.add('div')
-      div.append(number1,correct)
-      missed.append(div);
-      number1.classList.add('black')
-      correct.classList.add('correct')
-      correct.scrollIntoView();
-    }
-    let percentage = Math.floor(score/completed*100)
-    right.innerText = `${100 - percentage}` + '%' + ' Right'
-    scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1} `;
-     textField.value = '';    
+      number++
+      let zero = `${number - 1}`.toString().padStart(2, '0')
+      completed++
+      let word = wordList[Math.floor(Math.random()*wordList.length)];
+      let voices = window.speechSynthesis.getVoices();
+      localStorage.setItem('word' + number, word);
+      let a = localStorage.getItem('word' + number);
+      let index = wordList.indexOf(word);
+      wordList.splice(index,1);
+      console.log(index)
+     let utterance = new SpeechSynthesisUtterance(a);
+      let desiredVoice = voices.find(function (voice) {
+         return voice.name === "Google US English";
+       });
+       utterance.voice = desiredVoice;
+       utterance.rate = .9;
+       window.speechSynthesis.speak(utterance);
+  
+      if(counter != true){
+          score += 1
+        var p = document.createElement('p');
+        var p1 = document.createElement('p');
+        var p2 = document.createElement('p');
+        p.textContent = zero + '. ';
+        p2.textContent =localStorage.getItem('word' + `${number - 1}`);
+        p1.textContent = textField.value
+        p1.classList.add('wrong')
+        p.classList.add('black')
+        p2.classList.add('correct')
+        let div = document.createElement('div');
+        div.classList.add('div')
+        div.append(p,p1,p2)
+        missed.append(div);
+        p2.scrollIntoView(); 
+      }else {
+        var correct = document.createElement('p');
+        var number1 = document.createElement('p');
+        correct.textContent =localStorage.getItem('word' + `${number - 1}`);
+        number1.textContent = zero + '. ';
+        let div = document.createElement('div');
+        div.classList.add('div')
+        div.append(number1,correct)
+        missed.append(div);
+        number1.classList.add('black')
+        correct.classList.add('correct')
+        correct.scrollIntoView();
+      }
+      let percentage = Math.floor(score/completed*100)
+      right.innerText = `${100 - percentage}` + '%' + ' Right'
+      scoreField  = document.getElementById('score').innerText ='Missed ' + score + ' out of ' + `${number - 1} `;
+       textField.value = '';     
 })
 
 textField.addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
     number++
+    let zero = `${number - 1}`.toString().padStart(2, '0')
     completed++
     let word = wordList[Math.floor(Math.random()*wordList.length)];
     let voices = window.speechSynthesis.getVoices();
@@ -122,7 +124,7 @@ textField.addEventListener('keypress', (event) => {
       var p = document.createElement('p');
       var p1 = document.createElement('p');
       var p2 = document.createElement('p');
-      p.textContent = number - 1 + '. ';
+      p.textContent = zero + '. ';
       p2.textContent =localStorage.getItem('word' + `${number - 1}`);
       p1.textContent = textField.value
       p1.classList.add('wrong')
@@ -137,7 +139,7 @@ textField.addEventListener('keypress', (event) => {
       var correct = document.createElement('p');
       var number1 = document.createElement('p');
       correct.textContent =localStorage.getItem('word' + `${number - 1}`);
-      number1.textContent = number - 1 + '. ';
+      number1.textContent = zero + '. ';
       let div = document.createElement('div');
       div.classList.add('div')
       div.append(number1,correct)
